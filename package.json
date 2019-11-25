@@ -7,7 +7,8 @@
     "normalize.css": "^8.0.1",
     "react": "^16.9.0",
     "react-dom": "^16.9.0",
-    "react-scripts": "3.0.0"
+    "react-scripts": "3.0.0",
+    "styled-components": "^4.4.1"
   },
   "scripts": {
     "start": "react-scripts start",
@@ -45,5 +46,17 @@
     "watchPathIgnorePatterns": [
       "<rootDir>/node_modules/"
     ]
-  }
+  },
+  "description": "## Setup",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/lighthouse-labs/scheduler.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/lighthouse-labs/scheduler/issues"
+  },
+  "homepage": "https://github.com/lighthouse-labs/scheduler#readme"
 }
