@@ -7,21 +7,18 @@ export default function InterviewerList(props) {
     return (
       <InterviewerListItem
         key={interviewer.id}
+        interviewer={props.interviewer}
         name={interviewer.name}
         avatar={interviewer.avatar}
         selected={interviewer.id === props.value}
-        setInterviewer={(event) => props.onChange(interviewer.id)}
+        setInterviewer={event => props.onChange(interviewer.id)}
       />
     );
   });
-   return (
+  return (
     <section className="interviewers">
       <h4 className="interviewers__header text--light">Interviewer</h4>
-      <ul className="interviewers__list"> 
-      {Item}
-          </ul>
-      </section>
-    );
-  };
-
-
+      <ul className="interviewers__list">{Item}</ul>
+    </section>
+  );
+}

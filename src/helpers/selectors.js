@@ -11,7 +11,7 @@ export function getAppointmentsForDay(state, Selectedday) {
 
 export function getInterview(state, interview) {
   if (interview) {
-    let id = interview.interviewer
+    let id = interview.interviewer;
     return {
       student: interview.student,
       interviewer: state.interviewers[id]
@@ -19,3 +19,19 @@ export function getInterview(state, interview) {
   }
   return null;
 }
+
+
+export function getInterviewersForDay (state, day) {
+  const filteredDays = state.days.filter(item => item.name === day, []);
+  let result = [];
+  if (filteredDays.length > 0) {
+    for (const key in state.interviewers) {
+      filteredDays[0].interviewers.forEach(el => {
+        if (el === Number(key)) {
+          result.push(state.interviewers[key]);
+        }
+      });
+    }
+  }
+  return result;
+};
