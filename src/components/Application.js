@@ -4,7 +4,7 @@ import "components/Application.scss";
 import Axios from "axios";
 import Appointment from "components/Appointment";
 import { getAppointmentsForDay, getInterview, getInterviewersForDay} from "../helpers/selectors";
-
+import useApplicationData from "../hooks/useApplicationData";
 // const days = [
 //   {
 //     id: 1,
@@ -61,45 +61,69 @@ import { getAppointmentsForDay, getInterview, getInterviewersForDay} from "../he
 //   },
 // ];
 export default function Application(props) {
-  const [state, setState] = useState({
-    day: "",
-    days: [],
-    appointments: {},
-    interviewers: {}
-  });
-  const setDay = day => setState({ ...state, day });
-  // const setDays =(setDay) => setState({...state , setDay})
+  // const [state, setState] = useState({
+  //   day: "",
+  //   days: [],
+  //   appointments: {},
+  //   interviewers: {}
+  // });
+  // const setDay = day => setState({ ...state, day });
+  // // const setDays =(setDay) => setState({...state , setDay})
 
-  function bookInterview(id, interview) {
-    console.log(id, interview);
-  }
+
+  const {
+    setState,
+    state,
+    setDay,
+    bookInterview,
+    cancel
+  } = useApplicationData();
 
   const ap = getAppointmentsForDay(state, state.day).map(appointment => {
     const interview = getInterview(state, appointment.interview);
     const interviewers= getInterviewersForDay (state, state.day);
  
-    const bookInterview = (id, interview) => {
-      const appointment = {
-        ...state.appointments[id],
-        interview
-      }
+  //   const bookInterview = (id, interview) => {
+  //     const appointment = {
+  //       ...state.appointments[id],
+  //       interview
+  //     }
   
-      const appointments = {
-        ...state.appointments,
-        [id]: appointment
-      };
+  //     const appointments = {
+  //       ...state.appointments,
+  //       [id]: appointment
+  //     };
   
-      // push appointment to db and update state if successful
-      return Axios.put(`http://localhost:8001/api/appointments/${id}`, appointment)
-        .then(() => setState(prev => ({ ...prev, appointments })));
-    }
+  //     // push appointment to db and update state if successful
+  //     return Axios.put(`http://localhost:8001/api/appointments/${id}`, appointment)
+  //       .then(() => setState(prev => ({ ...prev, appointments })));
+  //   }
+
+   
+  // const cancel = (id) => {
+  //   const appointment = {
+  //     ...state.appointments[id],
+  //     interview: null
+  //   }
+
+  //   const appointments = {
+  //     ...state.appointments,
+  //     [id]: appointment
+  //   };
+     
+  //   // delete interview from db and update state if successful
+  //   return Axios.delete(`http://localhost:8001/api/appointments/${id}`)
+  //     .then(() => setState(prev => ({ ...prev, appointments })));
+  // }
+
     return (
 
 
       <Appointment key={appointment.id} id={appointment.id} {...appointment} interview={interview}
 
  interviewers={interviewers}
- bookInterview={bookInterview} />
+ bookInterview={bookInterview}
+ cancel= {cancel} />
     );
 
   });
