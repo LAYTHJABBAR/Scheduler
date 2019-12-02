@@ -1,12 +1,12 @@
 import React, { Fragment } from "react";
-import DayListItem from "components/DayListItem";
+import DayListItem from "components/DayListItem/DayListItem";
 import { storiesOf } from "@storybook/react";
 import { action } from "@storybook/addon-actions";
 import "index.scss";
-import Button from "components/Button";
-import DayList from "components/DayList";
-import InterviewerListItem from "components/InterviewerListItem";
-import InterviewerList from "components/InterviewerList";
+import Button from "components/Button/Button";
+import DayList from "components/DayList/DayList";
+import InterviewerListItem from "components/InterviewListItem/InterviewerListItem";
+import InterviewerList from "components/IntervewList/InterviewerList";
 import "components/Appointment/styles.scss";
 import Appointment from "components/Appointment";
 import Header from "components/Appointment/Header.js";
@@ -139,13 +139,14 @@ storiesOf("Appointment", module)
   .add("Appointment with Time", () => <Appointment time="12pm" />)
   .add("Header", () => <Header time="12pm" />)
   .add("Empty", () => <Empty onAdd={action("onAdd")} />)
-  .add("Show", () => <Show
+  .add("Show", () => (
+    <Show
       student="Lydia Miller-Jones"
       interviewer={interviewer}
       onEdit={action("onEdit")}
       onDelete={action("onDelete")}
     />
-  )
+  ))
   .add("Confirm", () => (
     <Confirm
       message="Delete the appointment?"
@@ -192,9 +193,8 @@ storiesOf("Appointment", module)
       <Appointment
         id={1}
         time="12pm"
-
         interview={{ student: "Lydia Miller-Jones", interviewer }}
       />
       <Appointment id="last" time="1pm" />
     </Fragment>
-  ))
+  ));

@@ -1,3 +1,5 @@
+
+//external  imported files
 import React from "react";
 import "components/Appointment/styles.scss";
 import Header from "components/Appointment/Header";
@@ -19,8 +21,10 @@ export default function Appointment(props) {
   const EDIT = "EDIT";
   const ERROR_SAVE = "ERROR_SAVE";
   const ERROR_DELETE = "ERROR_DELETE";
-  const { mode, transition, back } = useVisualMode(props.interview ? SHOW : EMPTY);
-
+  const { mode, transition, back } = useVisualMode(
+    props.interview ? SHOW : EMPTY
+  );
+//function to add a new student with an assigned interviewr
   const onAdd = () => transition(CREATE);
   function save(name, interviewer) {
     const interview = {
@@ -35,11 +39,12 @@ export default function Appointment(props) {
         transition(ERROR_SAVE, true);
       });
   }
-
+//function to delete an exist appoinment
   function deleteAppointment() {
     transition(CONFIRM);
   }
 
+  //function to confir the deleting and transition to the ampty form
   function confirmDelete() {
     transition(DELETING, true);
     props
@@ -52,6 +57,7 @@ export default function Appointment(props) {
       });
   }
 
+  //function to edith the created show form
   function edit() {
     transition(EDIT);
   }
@@ -70,7 +76,7 @@ export default function Appointment(props) {
       )}
       {mode === CREATE && (
         <Form
-          interviewers={props.interviewers}
+          interviewers={props.interviewers || []}
           onCancel={back}
           onSave={save}
         />
@@ -93,18 +99,12 @@ export default function Appointment(props) {
           onSave={save}
         />
       )}
-        
-            {mode === ERROR_SAVE && (
-        <Error
-          message={"Could not save the appointment"}
-          onClose={back}
-        />
+
+      {mode === ERROR_SAVE && (
+        <Error message={"Could not save the appointment"} onClose={back} />
       )}
       {mode === ERROR_DELETE && (
-        <Error
-          message={"Could not delete the appointment"}
-          onClose={back}
-        />
+        <Error message={"Could not delete the appointment"} onClose={back} />
       )}
     </article>
   );
