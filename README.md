@@ -4,7 +4,7 @@ Schdular app Using the latest tools and techniques, it is built and tested to al
 
 ## app details
 
-- Booking interview and canceling it using an API server
+- Booking interview and cancelling it using an API server
 
 
  !["Screenshot of URLs page"](https://github.com/LAYTHJABBAR/Scheduler/blob/master/docs/schdular%20creat%20new%20table.png?raw=true)
@@ -12,7 +12,7 @@ Schdular app Using the latest tools and techniques, it is built and tested to al
  !["Screenshot of Cookies page"](https://github.com/LAYTHJABBAR/Scheduler/blob/master/docs/schdular%20one.png?raw=true)
 
 ## Setup
-- Clone the API https://github.com/lighthouse-labs/scheduler-api please fllow the installation Instructions on the REDME FILE
+- Clone the API server https://github.com/lighthouse-labs/scheduler-api please follow the installation Instructions on the REDME FILE
 
 ## Dependencies
 please be sure to have them installed before running the app.
