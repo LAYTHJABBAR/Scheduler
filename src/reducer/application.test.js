@@ -1,3 +1,4 @@
+
 import { reducer } from "./application";
 
 describe("Application Reducer", () => {
