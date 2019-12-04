@@ -79,6 +79,6 @@ Install dependencies with `npm install`.
 ## Getting Started
 
 - Install all dependencies (using the `npm install` command).
-- Get and install the [server](https://github.com/lighthouse-labs/scheduler-api).
+- Get and install the [server](https://github.com/LAYTHJABBAR/scheduler-api).
 please follow the installation Instructions on the README FILE
 - Run both the server and the client.
