@@ -1,6 +1,6 @@
 # Interview Scheduler
 
-Schdular app Using the latest tools and techniques, it is built and tested to allows users to book and cancel interviews. it is combine with a concise API with a WebSocket server to build a realtime experience.
+Scheduler app Using the latest tools and techniques, it is built and tested to allows users to book and cancel interviews. it is combine with a concise API with a WebSocket server to build a realtime experience.
 
 ## app details
 
